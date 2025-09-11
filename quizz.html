@@ -72,6 +72,7 @@
   <div class="container">
     <h1>Quiz App</h1>
     <form id="quizForm">
+      <!-- Reproductive System -->
       <div class="question">
         <h2>1. Which of the following systems is the most closely linked to the reproductive system?</h2>
         <label><input type="radio" name="q1" value="A"> A. Nervous system</label>
@@ -86,6 +87,77 @@
         <label><input type="radio" name="q2" value="C"> C. Stores mature sperm</label>
         <label><input type="radio" name="q2" value="D"> D. Produces testosterone</label>
       </div>
+      <div class="question">
+        <h2>3. It is where the egg cell is fertilized by the sperm cell.</h2>
+        <label><input type="radio" name="q3" value="A"> A. Uterus</label>
+        <label><input type="radio" name="q3" value="B"> B. Fallopian tubes</label>
+        <label><input type="radio" name="q3" value="C"> C. Cervix</label>
+        <label><input type="radio" name="q3" value="D"> D. Vagina</label>
+      </div>
+
+      <!-- Endocrine System -->
+      <div class="question">
+        <h2>4. What is the main function of the endocrine system?</h2>
+        <label><input type="radio" name="q4" value="A"> A) To pump blood</label>
+        <label><input type="radio" name="q4" value="B"> B) To digest food</label>
+        <label><input type="radio" name="q4" value="C"> C) To produce movement</label>
+        <label><input type="radio" name="q4" value="D"> D) To release hormones</label>
+      </div>
+
+      <!-- Digestive System -->
+      <div class="question">
+        <h2>5. What is the role of peristalsis in the digestive system?</h2>
+        <label><input type="radio" name="q5" value="A"> A) Absorbs nutrients</label>
+        <label><input type="radio" name="q5" value="B"> B) Neutralizes acid</label>
+        <label><input type="radio" name="q5" value="C"> C) Breaks down food chemically</label>
+        <label><input type="radio" name="q5" value="D"> D) Moves food through the digestive tract</label>
+      </div>
+
+      <!-- Immune/Lymphatic System -->
+      <div class="question">
+        <h2>6. Which of the following cells is primarily responsible for antigen presentation to T cells?</h2>
+        <label><input type="radio" name="q6" value="A"> A. Macrophages</label>
+        <label><input type="radio" name="q6" value="B"> B. Dendritic Cells</label>
+        <label><input type="radio" name="q6" value="C"> C. Neutrophils</label>
+        <label><input type="radio" name="q6" value="D"> D. Natural Killer Cells</label>
+      </div>
+
+      <!-- Respiratory System -->
+      <div class="question">
+        <h2>7. What is the main purpose of the respiratory system?</h2>
+        <label><input type="radio" name="q7" value="A"> A. To digest food</label>
+        <label><input type="radio" name="q7" value="B"> B. To transport hormones</label>
+        <label><input type="radio" name="q7" value="C"> C. To provide oxygen and remove CO₂</label>
+        <label><input type="radio" name="q7" value="D"> D. To control body temperature</label>
+      </div>
+
+      <!-- Muscular System -->
+      <div class="question">
+        <h2>8. Which statement best describes cardiac muscle?</h2>
+        <label><input type="radio" name="q8" value="A"> A. Voluntary, cylindrical, multinucleated fibers</label>
+        <label><input type="radio" name="q8" value="B"> B. Involuntary, striated, with intercalated discs</label>
+        <label><input type="radio" name="q8" value="C"> C. Non-striated, involuntary, in internal organs</label>
+        <label><input type="radio" name="q8" value="D"> D. Spindle-shaped with many nuclei</label>
+      </div>
+
+      <!-- Cardiovascular System -->
+      <div class="question">
+        <h2>9. What is the primary function of hemoglobin in red blood cells?</h2>
+        <label><input type="radio" name="q9" value="A"> A. Fight infections</label>
+        <label><input type="radio" name="q9" value="B"> B. Carry oxygen and transport carbon dioxide</label>
+        <label><input type="radio" name="q9" value="C"> C. Produce antibodies</label>
+        <label><input type="radio" name="q9" value="D"> D. Form clots</label>
+      </div>
+
+      <!-- Skeletal System -->
+      <div class="question">
+        <h2>10. Which of the following bone cells is primarily responsible for bone remodeling by breaking down old bone tissue?</h2>
+        <label><input type="radio" name="q10" value="A"> A. Osteoblast</label>
+        <label><input type="radio" name="q10" value="B"> B. Osteocyte</label>
+        <label><input type="radio" name="q10" value="C"> C. Osteoclast</label>
+        <label><input type="radio" name="q10" value="D"> D. Chondrocyte</label>
+      </div>
+
       <button type="button" onclick="submitQuiz()">Submit</button>
     </form>
     <div class="result" id="result"></div>
@@ -94,7 +166,15 @@
   <script>
     const answers = {
       q1: "B",
-      q2: "B"
+      q2: "B",
+      q3: "B",
+      q4: "D",
+      q5: "D",
+      q6: "B",
+      q7: "C",
+      q8: "B",
+      q9: "B",
+      q10: "C"
     };
 
     function submitQuiz() {
