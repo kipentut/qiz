@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Quiz App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .question h2 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    label {
+      display: block;
+      padding: 8px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #fafafa;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz App</h1>
+    <form id="quizForm">
+      <div class="question">
+        <h2>1. Which of the following systems is the most closely linked to the reproductive system?</h2>
+        <label><input type="radio" name="q1" value="A"> A. Nervous system</label>
+        <label><input type="radio" name="q1" value="B"> B. Endocrine system</label>
+        <label><input type="radio" name="q1" value="C"> C. Digestive system</label>
+        <label><input type="radio" name="q1" value="D"> D. Skeletal system</label>
+      </div>
+      <div class="question">
+        <h2>2. What is the function of the scrotum in the male reproductive system?</h2>
+        <label><input type="radio" name="q2" value="A"> A. Produces sperm</label>
+        <label><input type="radio" name="q2" value="B"> B. Regulates the temperature of the testes</label>
+        <label><input type="radio" name="q2" value="C"> C. Stores mature sperm</label>
+        <label><input type="radio" name="q2" value="D"> D. Produces testosterone</label>
+      </div>
+      <button type="button" onclick="submitQuiz()">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "B",
+      q2: "B"
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let total = Object.keys(answers).length;
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").innerText = `You scored ${score} out of ${total}`;
+    }
+  </script>
+</body>
+</html>
