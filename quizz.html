@@ -3,193 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Quiz App</title>
+  <title>Full Quiz App</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 1.5rem;
-      text-align: center;
-      color: #333;
-    }
-    .question {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .question h2 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: #444;
-    }
-    label {
-      display: block;
-      padding: 8px;
-      margin-bottom: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      cursor: pointer;
-      background: #fafafa;
-    }
-    input[type="radio"] {
-      margin-right: 8px;
-    }
-    button {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    .result {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f9; }
+    .quiz-container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { font-size: 1.2em; }
+    .option { margin: 8px 0; }
+    button { margin-top: 10px; padding: 10px; border: none; border-radius: 5px; background: #007bff; color: #fff; font-size: 1em; }
+    button:disabled { background: #ccc; }
+    .result { margin-top: 20px; font-weight: bold; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Quiz App</h1>
-    <form id="quizForm">
-      <!-- Reproductive System -->
-      <div class="question">
-        <h2>1. Which of the following systems is the most closely linked to the reproductive system?</h2>
-        <label><input type="radio" name="q1" value="A"> A. Nervous system</label>
-        <label><input type="radio" name="q1" value="B"> B. Endocrine system</label>
-        <label><input type="radio" name="q1" value="C"> C. Digestive system</label>
-        <label><input type="radio" name="q1" value="D"> D. Skeletal system</label>
-      </div>
-      <div class="question">
-        <h2>2. What is the function of the scrotum in the male reproductive system?</h2>
-        <label><input type="radio" name="q2" value="A"> A. Produces sperm</label>
-        <label><input type="radio" name="q2" value="B"> B. Regulates the temperature of the testes</label>
-        <label><input type="radio" name="q2" value="C"> C. Stores mature sperm</label>
-        <label><input type="radio" name="q2" value="D"> D. Produces testosterone</label>
-      </div>
-      <div class="question">
-        <h2>3. It is where the egg cell is fertilized by the sperm cell.</h2>
-        <label><input type="radio" name="q3" value="A"> A. Uterus</label>
-        <label><input type="radio" name="q3" value="B"> B. Fallopian tubes</label>
-        <label><input type="radio" name="q3" value="C"> C. Cervix</label>
-        <label><input type="radio" name="q3" value="D"> D. Vagina</label>
-      </div>
-
-      <!-- Endocrine System -->
-      <div class="question">
-        <h2>4. What is the main function of the endocrine system?</h2>
-        <label><input type="radio" name="q4" value="A"> A) To pump blood</label>
-        <label><input type="radio" name="q4" value="B"> B) To digest food</label>
-        <label><input type="radio" name="q4" value="C"> C) To produce movement</label>
-        <label><input type="radio" name="q4" value="D"> D) To release hormones</label>
-      </div>
-
-      <!-- Digestive System -->
-      <div class="question">
-        <h2>5. What is the role of peristalsis in the digestive system?</h2>
-        <label><input type="radio" name="q5" value="A"> A) Absorbs nutrients</label>
-        <label><input type="radio" name="q5" value="B"> B) Neutralizes acid</label>
-        <label><input type="radio" name="q5" value="C"> C) Breaks down food chemically</label>
-        <label><input type="radio" name="q5" value="D"> D) Moves food through the digestive tract</label>
-      </div>
-
-      <!-- Immune/Lymphatic System -->
-      <div class="question">
-        <h2>6. Which of the following cells is primarily responsible for antigen presentation to T cells?</h2>
-        <label><input type="radio" name="q6" value="A"> A. Macrophages</label>
-        <label><input type="radio" name="q6" value="B"> B. Dendritic Cells</label>
-        <label><input type="radio" name="q6" value="C"> C. Neutrophils</label>
-        <label><input type="radio" name="q6" value="D"> D. Natural Killer Cells</label>
-      </div>
-
-      <!-- Respiratory System -->
-      <div class="question">
-        <h2>7. What is the main purpose of the respiratory system?</h2>
-        <label><input type="radio" name="q7" value="A"> A. To digest food</label>
-        <label><input type="radio" name="q7" value="B"> B. To transport hormones</label>
-        <label><input type="radio" name="q7" value="C"> C. To provide oxygen and remove CO₂</label>
-        <label><input type="radio" name="q7" value="D"> D. To control body temperature</label>
-      </div>
-
-      <!-- Muscular System -->
-      <div class="question">
-        <h2>8. Which statement best describes cardiac muscle?</h2>
-        <label><input type="radio" name="q8" value="A"> A. Voluntary, cylindrical, multinucleated fibers</label>
-        <label><input type="radio" name="q8" value="B"> B. Involuntary, striated, with intercalated discs</label>
-        <label><input type="radio" name="q8" value="C"> C. Non-striated, involuntary, in internal organs</label>
-        <label><input type="radio" name="q8" value="D"> D. Spindle-shaped with many nuclei</label>
-      </div>
-
-      <!-- Cardiovascular System -->
-      <div class="question">
-        <h2>9. What is the primary function of hemoglobin in red blood cells?</h2>
-        <label><input type="radio" name="q9" value="A"> A. Fight infections</label>
-        <label><input type="radio" name="q9" value="B"> B. Carry oxygen and transport carbon dioxide</label>
-        <label><input type="radio" name="q9" value="C"> C. Produce antibodies</label>
-        <label><input type="radio" name="q9" value="D"> D. Form clots</label>
-      </div>
-
-      <!-- Skeletal System -->
-      <div class="question">
-        <h2>10. Which of the following bone cells is primarily responsible for bone remodeling by breaking down old bone tissue?</h2>
-        <label><input type="radio" name="q10" value="A"> A. Osteoblast</label>
-        <label><input type="radio" name="q10" value="B"> B. Osteocyte</label>
-        <label><input type="radio" name="q10" value="C"> C. Osteoclast</label>
-        <label><input type="radio" name="q10" value="D"> D. Chondrocyte</label>
-      </div>
-
-      <button type="button" onclick="submitQuiz()">Submit</button>
-    </form>
-    <div class="result" id="result"></div>
+  <div class="quiz-container">
+    <h1>Human Body Systems Quiz</h1>
+    <div id="quiz"></div>
+    <button id="submit">Submit</button>
+    <div id="result" class="result"></div>
   </div>
 
   <script>
-    const answers = {
-      q1: "B",
-      q2: "B",
-      q3: "B",
-      q4: "D",
-      q5: "D",
-      q6: "B",
-      q7: "C",
-      q8: "B",
-      q9: "B",
-      q10: "C"
-    };
+    const quizData = [
+      // Reproductive System
+      {q: "Which system is most closely linked to the reproductive system?", options: ["Nervous system","Endocrine system","Digestive system","Skeletal system"], answer: 1},
+      {q: "What is the function of the scrotum in the male reproductive system?", options: ["Produces sperm","Regulates the temperature of the testes","Stores mature sperm","Produces testosterone"], answer: 1},
+      {q: "It is where the egg cell is fertilized by the sperm cell.", options: ["Uterus","Fallopian tubes","Cervix","Vagina"], answer: 1},
+      {q: "What hormone promotes Egg cell growth?", options: ["Luteinizing Hormone (LH)","Follicle-Stimulating Hormone (FSH)","Progesterone","Estrogen"], answer: 1},
+      {q: "Which are similarities of the male and female reproductive systems?", options: ["1 & 2","2 & 3","1 & 3","1, 2, & 3"], answer: 1},
 
-    function submitQuiz() {
-      let score = 0;
-      let total = Object.keys(answers).length;
+      // Endocrine System
+      {q: "What is the main function of the endocrine system?", options: ["To pump blood","To digest food","To produce movement","To release hormones"], answer: 3},
+      {q: "Which gland is known as the master gland?", options: ["Thyroid","Adrenal","Pituitary","Pancreas"], answer: 2},
+      {q: "Which hormone helps lower blood sugar levels?", options: ["Glucagon","Cortisol","Insulin","Adrenaline"], answer: 2},
+      {q: "Which gland controls sleep and wake cycles?", options: ["Pancreas","Adrenal","Thyroid","Pineal"], answer: 3},
+      {q: "Which of the following is NOT produced by the thymus gland?", options: ["Thymopoietin","Thymulin","Triiodothyronine (T3)","Thymosin"], answer: 2},
 
-      for (let key in answers) {
-        let selected = document.querySelector(`input[name="${key}"]:checked`);
-        if (selected && selected.value === answers[key]) {
-          score++;
-        }
-      }
+      // Digestive System
+      {q: "What is the role of peristalsis?", options: ["Absorbs nutrients","Neutralizes stomach acid","Breaks down food chemically","Moves food using muscle contractions"], answer: 3},
+      {q: "What are gastric juices made of?", options: ["Amylase & lipase","Insulin & glucagon","HCl & pepsin","Saliva & mucus"], answer: 2},
+      {q: "Which part absorbs most nutrients?", options: ["Stomach","Small Intestine","Large Intestine","Rectum"], answer: 1},
+      {q: "What is the role of the large intestine?", options: ["Break proteins","Absorb nutrients","Absorb water & form stool","Produce enzymes"], answer: 2},
+      {q: "Which enzyme breaks down fats?", options: ["Amylase","Lipase","Pepsin","Trypsin"], answer: 1},
 
-      document.getElementById("result").innerText = `You scored ${score} out of ${total}`;
+      // Immune / Lymphatic System
+      {q: "Which cell is responsible for antigen presentation to T cells?", options: ["Macrophages","Dendritic Cells","Neutrophils","Natural Killer Cells"], answer: 1},
+      {q: "Which organ produces immature T-cells?", options: ["Spleen","Lymph Nodes","Bone Marrow","Thymus"], answer: 2},
+      {q: "Which cell produces antibodies?", options: ["Plasma B-cells","Cytotoxic T-cells","Neutrophils","Macrophages"], answer: 0},
+      {q: "Which system triggers inflammation with 30 blood proteins?", options: ["Lymphatic","Circulatory","Endocrine","Complement"], answer: 3},
+      {q: "Which is NOT a granulocyte?", options: ["Eosinophil","Neutrophil","Hemophil","Basophil"], answer: 2},
+
+      // Respiratory System
+      {q: "What is the main purpose of the respiratory system?", options: ["Digest food","Transport hormones","Provide O2 & remove CO2","Control body temp"], answer: 2},
+      {q: "Primary site of gas exchange?", options: ["Trachea","Bronchi","Bronchioles","Alveoli"], answer: 3},
+      {q: "Function of cilia in nasal cavity?", options: ["Produce mucus","Trap dust & push mucus","Warm air","Exchange gases"], answer: 1},
+      {q: "What happens during inhalation?", options: ["Diaphragm relaxes, air out","Diaphragm contracts, air in","Rib cage contracts, air out","Diaphragm moves up, air in"], answer: 1},
+      {q: "Which pharynx is for air only?", options: ["Oropharynx","Laryngopharynx","Nasopharynx","Epiglottis"], answer: 2},
+
+      // Muscular System
+      {q: "Which statement best describes cardiac muscle?", options: ["Voluntary, cylindrical","Involuntary, striated, with discs","Non-striated, involuntary","Spindle-shaped"], answer: 1},
+      {q: "Which tissue surrounds individual muscle fibers?", options: ["Epimysium","Perimysium","Endomysium","Aponeurosis"], answer: 2},
+      {q: "Three major muscle types?", options: ["Skeletal, cardiac, epithelial","Smooth, skeletal, connective","Striated, connective, nervous","Cardiac, smooth, skeletal"], answer: 3},
+      {q: "Organized contractile units in muscle fibers?", options: ["Myofibrils","Fascicles","Sarcomeres","Intercalated discs"], answer: 2},
+      {q: "Best describes isometric contraction?", options: ["Tension, no length change","Length change, movement","Shorten w/ force","Lengthen w/ resistance"], answer: 0},
+
+      // Cardiovascular System
+      {q: "Primary function of hemoglobin?", options: ["Fight infections","Carry O2 & CO2","Produce antibodies","Form clots"], answer: 1},
+      {q: "Which part collects oxygen-poor blood?", options: ["Sup. Vena Cava","Right Atrium","Right Ventricle","Left Atrium"], answer: 1},
+      {q: "Valve between LV and LA?", options: ["Mitral","Tricuspid","Aortic","Pulmonary"], answer: 0},
+      {q: "Why are arteries thick?", options: ["Connected to heart","High blood pressure","Veins are thick","Distribute nutrients"], answer: 1},
+      {q: "Why capillaries have thin walls?", options: ["For easy nutrient exchange","Slower flow","Transition vessels","Missing tunica intima"], answer: 0},
+
+      // Skeletal System
+      {q: "Which bone cell breaks down old bone tissue?", options: ["Osteoblast","Osteocyte","Osteoclast","Chondrocyte"], answer: 2},
+      {q: "Primary function of axial skeleton?", options: ["Limb movement","Protects organs & supports axis","Flexibility","Blood cell production"], answer: 1},
+      {q: "When does growth plate close?", options: ["Prenatal","Infancy","Adolescence","Adulthood"], answer: 2},
+      {q: "Adaptation for bipedalism?", options: ["Bigger jaw","Longer arms","S-shaped spine","Flat feet"], answer: 2},
+      {q: "How does skeletal system aid circulation?", options: ["Stores calcium","Regulates blood pressure","Houses bone marrow","Filters waste"], answer: 2}
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizEl = document.getElementById('quiz');
+    const submitBtn = document.getElementById('submit');
+    const resultEl = document.getElementById('result');
+
+    function loadQuiz() {
+      const currentQuiz = quizData[currentQuestion];
+      quizEl.innerHTML = `<h2>${currentQuiz.q}</h2>` +
+        currentQuiz.options.map((opt, i) => `
+          <div class='option'>
+            <label><input type='radio' name='answer' value='${i}'> ${opt}</label>
+          </div>`
+        ).join('');
     }
+
+    submitBtn.addEventListener('click', () => {
+      const answerEls = document.querySelectorAll('input[name=answer]');
+      let answer;
+      answerEls.forEach(el => { if(el.checked) answer = parseInt(el.value); });
+      if(answer === quizData[currentQuestion].answer) {
+        score++;
+      }
+      currentQuestion++;
+      if(currentQuestion < quizData.length) {
+        loadQuiz();
+      } else {
+        quizEl.innerHTML = "";
+        resultEl.innerHTML = `You scored ${score} out of ${quizData.length}`;
+        submitBtn.disabled = true;
+      }
+    });
+
+    loadQuiz();
   </script>
 </body>
 </html>
