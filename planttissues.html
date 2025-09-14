@@ -7,141 +7,156 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f9f9;
       margin: 0;
       padding: 20px;
+      background: #f4f9f4;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
     }
     .quiz-container {
-      max-width: 500px;
+      max-width: 600px;
       margin: auto;
       background: #fff;
       padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    h1 {
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2e7d32;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .question {
-      font-weight: bold;
-      margin: 15px 0 5px;
+      margin-bottom: 15px;
     }
-    .options button {
+    button {
       display: block;
       width: 100%;
-      margin: 5px 0;
+      margin: 8px 0;
       padding: 10px;
-      font-size: 16px;
       border: none;
-      border-radius: 8px;
-      background: #e0f2f1;
+      border-radius: 5px;
+      background: #e0e0e0;
+      font-size: 16px;
       cursor: pointer;
-      transition: 0.3s;
     }
-    .options button:hover {
-      background: #b2dfdb;
-    }
-    .correct {
-      background: #a5d6a7 !important;
-      color: #1b5e20;
-    }
-    .wrong {
-      background: #ef9a9a !important;
-      color: #b71c1c;
-    }
-    #result {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
+    button.correct { background: #66bb6a; color: #fff; }
+    button.wrong { background: #ef5350; color: #fff; }
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      button { font-size: 14px; padding: 8px; }
     }
   </style>
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Plant Tissues Quiz 🌱</h1>
-    <div id="quiz"></div>
-    <div id="result"></div>
-  </div>
+  <h1>🌱 Plant Tissues Quiz</h1>
+  <div class="quiz-container" id="quiz"></div>
 
   <script>
     const quizData = [
       {
-        question: "Which tissues are made of undifferentiated cells that continuously divide?",
-        options: ["Permanent tissues", "Meristematic tissues", "Collenchyma", "Sclerenchyma"],
-        answer: 1
+        question: "What defines permanent tissues in plants?",
+        answers: ["They continuously divide", "They have fixed functions", "They are undifferentiated"],
+        correct: 1
       },
       {
-        question: "What is the main function of apical meristems?",
-        options: ["Increase girth", "Photosynthesis", "Increase length/height", "Storage"],
-        answer: 2
+        question: "Which type of permanent tissue is made of only one cell type?",
+        answers: ["Simple permanent tissue", "Complex permanent tissue", "Meristematic tissue"],
+        correct: 0
       },
       {
-        question: "Which meristem is responsible for secondary growth (girth)?",
-        options: ["Apical", "Lateral", "Intercalary", "Parenchyma"],
-        answer: 1
+        question: "Parenchyma tissues are characterized by?",
+        answers: ["Dead cells with lignified walls", "Morphologically diverse living cells with primary walls", "Cells with no intercellular spaces"],
+        correct: 1
       },
       {
-        question: "Which simple permanent tissue is alive, thin-walled, and can dedifferentiate for healing?",
-        options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Xylem"],
-        answer: 0
+        question: "Which parenchyma type specializes in photosynthesis?",
+        answers: ["Aerenchyma", "Chlorenchyma", "Storage Parenchyma"],
+        correct: 1
       },
       {
-        question: "Collenchyma provides support due to its:",
-        options: ["Dead, lignified cells", "Unevenly thickened primary cell walls", "Air-filled spaces", "Storage vacuoles"],
-        answer: 1
+        question: "Which parenchyma stores water in succulents like cactus?",
+        answers: ["Aquiferous Parenchyma", "Chlorenchyma", "Aerenchyma"],
+        correct: 0
       },
       {
-        question: "Which simple permanent tissue is dead at maturity with thick, lignified walls?",
-        options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Phloem"],
-        answer: 2
+        question: "What is the function of Aerenchyma?",
+        answers: ["Storage of starch", "Providing buoyancy & aeration with air spaces", "Transport of water"],
+        correct: 1
       },
       {
-        question: "Which parenchyma type is specialized for photosynthesis?",
-        options: ["Chlorenchyma", "Aerenchyma", "Storage Parenchyma", "Aquiferous Parenchyma"],
-        answer: 0
+        question: "Collenchyma provides: ",
+        answers: ["Rigid support only", "Flexible mechanical support", "Nutrient transport"],
+        correct: 1
+      },
+      {
+        question: "Sclerenchyma cells are: ",
+        answers: ["Dead at maturity with lignified walls", "Living with thin walls", "Photosynthetic"],
+        correct: 0
+      },
+      {
+        question: "Fibers and sclereids are examples of: ",
+        answers: ["Collenchyma", "Sclerenchyma", "Parenchyma"],
+        correct: 1
+      },
+      {
+        question: "Which meristem is responsible for primary growth (length/height)?",
+        answers: ["Apical meristem", "Lateral meristem", "Intercalary meristem"],
+        correct: 0
+      },
+      {
+        question: "Lateral meristems are responsible for: ",
+        answers: ["Primary growth", "Secondary growth (thickness)", "Regeneration after grazing"],
+        correct: 1
+      },
+      {
+        question: "The vascular cambium produces: ",
+        answers: ["Secondary xylem & phloem", "Primary xylem & phloem", "Cork cells"],
+        correct: 0
+      },
+      {
+        question: "The cork cambium (phellogen) produces: ",
+        answers: ["Secondary xylem", "Periderm/cork cells", "Mesophyll"],
+        correct: 1
+      },
+      {
+        question: "Intercalary meristems are commonly found in: ",
+        answers: ["Dicots", "Monocots", "Woody stems"],
+        correct: 1
+      },
+      {
+        question: "What allows grasses to regrow after being grazed or cut?",
+        answers: ["Lateral meristem", "Apical meristem", "Intercalary meristem"],
+        correct: 2
       }
     ];
 
     const quizContainer = document.getElementById("quiz");
-    const resultContainer = document.getElementById("result");
-    let score = 0;
-    let qIndex = 0;
 
-    function loadQuestion() {
-      if (qIndex >= quizData.length) {
-        quizContainer.innerHTML = "<h2>Quiz Completed ✅</h2>";
-        resultContainer.innerText = `Your Score: ${score}/${quizData.length}`;
-        return;
-      }
+    quizData.forEach((q, index) => {
+      const qDiv = document.createElement("div");
+      qDiv.classList.add("question");
 
-      let q = quizData[qIndex];
-      quizContainer.innerHTML = `
-        <div class='question'>Q${qIndex+1}. ${q.question}</div>
-        <div class='options'>
-          ${q.options.map((opt,i) => `<button onclick=checkAnswer(${i})>${opt}</button>`).join("")}
-        </div>
-      `;
-    }
+      const qText = document.createElement("h3");
+      qText.textContent = `${index + 1}. ${q.question}`;
+      qDiv.appendChild(qText);
 
-    function checkAnswer(selected) {
-      const buttons = document.querySelectorAll(".options button");
-      buttons.forEach((btn,i) => {
-        if (i === quizData[qIndex].answer) btn.classList.add("correct");
-        if (i === selected && i !== quizData[qIndex].answer) btn.classList.add("wrong");
-        btn.disabled = true;
+      q.answers.forEach((answer, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = answer;
+        btn.onclick = () => {
+          if (i === q.correct) {
+            btn.classList.add("correct");
+          } else {
+            btn.classList.add("wrong");
+          }
+          setTimeout(() => {
+            [...btn.parentNode.querySelectorAll("button")].forEach(b => b.disabled = true);
+          }, 200);
+        };
+        qDiv.appendChild(btn);
       });
-      if (selected === quizData[qIndex].answer) score++;
-      setTimeout(() => {
-        qIndex++;
-        loadQuestion();
-      }, 1200);
-    }
 
-    loadQuestion();
+      quizContainer.appendChild(qDiv);
+    });
   </script>
 </body>
 </html>
