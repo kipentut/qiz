@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Tissues Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .quiz-container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+    .question {
+      font-weight: bold;
+      margin: 15px 0 5px;
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #e0f2f1;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .options button:hover {
+      background: #b2dfdb;
+    }
+    .correct {
+      background: #a5d6a7 !important;
+      color: #1b5e20;
+    }
+    .wrong {
+      background: #ef9a9a !important;
+      color: #b71c1c;
+    }
+    #result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Plant Tissues Quiz 🌱</h1>
+    <div id="quiz"></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Which tissues are made of undifferentiated cells that continuously divide?",
+        options: ["Permanent tissues", "Meristematic tissues", "Collenchyma", "Sclerenchyma"],
+        answer: 1
+      },
+      {
+        question: "What is the main function of apical meristems?",
+        options: ["Increase girth", "Photosynthesis", "Increase length/height", "Storage"],
+        answer: 2
+      },
+      {
+        question: "Which meristem is responsible for secondary growth (girth)?",
+        options: ["Apical", "Lateral", "Intercalary", "Parenchyma"],
+        answer: 1
+      },
+      {
+        question: "Which simple permanent tissue is alive, thin-walled, and can dedifferentiate for healing?",
+        options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Xylem"],
+        answer: 0
+      },
+      {
+        question: "Collenchyma provides support due to its:",
+        options: ["Dead, lignified cells", "Unevenly thickened primary cell walls", "Air-filled spaces", "Storage vacuoles"],
+        answer: 1
+      },
+      {
+        question: "Which simple permanent tissue is dead at maturity with thick, lignified walls?",
+        options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Phloem"],
+        answer: 2
+      },
+      {
+        question: "Which parenchyma type is specialized for photosynthesis?",
+        options: ["Chlorenchyma", "Aerenchyma", "Storage Parenchyma", "Aquiferous Parenchyma"],
+        answer: 0
+      }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+    const resultContainer = document.getElementById("result");
+    let score = 0;
+    let qIndex = 0;
+
+    function loadQuestion() {
+      if (qIndex >= quizData.length) {
+        quizContainer.innerHTML = "<h2>Quiz Completed ✅</h2>";
+        resultContainer.innerText = `Your Score: ${score}/${quizData.length}`;
+        return;
+      }
+
+      let q = quizData[qIndex];
+      quizContainer.innerHTML = `
+        <div class='question'>Q${qIndex+1}. ${q.question}</div>
+        <div class='options'>
+          ${q.options.map((opt,i) => `<button onclick=checkAnswer(${i})>${opt}</button>`).join("")}
+        </div>
+      `;
+    }
+
+    function checkAnswer(selected) {
+      const buttons = document.querySelectorAll(".options button");
+      buttons.forEach((btn,i) => {
+        if (i === quizData[qIndex].answer) btn.classList.add("correct");
+        if (i === selected && i !== quizData[qIndex].answer) btn.classList.add("wrong");
+        btn.disabled = true;
+      });
+      if (selected === quizData[qIndex].answer) score++;
+      setTimeout(() => {
+        qIndex++;
+        loadQuestion();
+      }, 1200);
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
